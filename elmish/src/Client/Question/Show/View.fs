@@ -20,10 +20,13 @@ type DangerousInnerHtml =
 let htmlFromMarkdown str = div [ DangerouslySetInnerHTML { __html = Marked.Globals.marked.parse (str) } ] []
 
 let root model dispatch =
-    div []
-        [ article [ ClassName "media" ]
-            [ figure [ClassName "media-left"]
-                [ p [ ClassName "image is64x64"]
-                    [ img [ Src "http://bulma.io/images/placeholders/128x128.png"]]]
-              div [ ClassName "media-content" ]
-                [ str "question text" ]] ]
+    match model.Question with 
+    | None -> str "Loading..."
+    | Some question ->
+        div []
+            [ article [ ClassName "media" ]
+                [ figure [ClassName "media-left"]
+                    [ p [ ClassName "image is64x64"]
+                        [ img [ Src "http://bulma.io/images/placeholders/128x128.png"]]]
+                  div [ ClassName "media-content" ]
+                    [ str question.Title ]] ]

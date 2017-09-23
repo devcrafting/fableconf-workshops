@@ -5,4 +5,9 @@ open Fable.PowerPack.Fetch
 open Fable.Core.JsInterop
 open Shared.Types
 
-let dummy = ""
+let getDetails id =
+    promise {
+        let url = serverUrl <| sprintf "/question/%i" id 
+        let! res = fetchAs<Shared.Types.QuestionShow> url [ ]
+        return res
+    }
