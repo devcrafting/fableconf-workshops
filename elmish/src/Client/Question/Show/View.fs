@@ -21,7 +21,9 @@ let htmlFromMarkdown str = div [ DangerouslySetInnerHTML { __html = Marked.Globa
 
 let root model dispatch =
     div []
-        [ button [ OnClick (fun _ -> dispatch Increment)] [ str "Increment" ]
-          button [ OnClick (fun _ -> dispatch Decrement)] [ str "Decrement" ]
+        [ button [ OnClick (fun _ -> dispatch Increment)
+                   ClassName "button" ] [ str "Increment" ]
+          button [ OnClick (fun _ -> dispatch Decrement)
+                   ClassName "button"] [ str "Decrement" ]
           br []
           str <| string model.Value ]
