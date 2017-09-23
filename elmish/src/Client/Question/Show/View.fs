@@ -20,4 +20,8 @@ type DangerousInnerHtml =
 let htmlFromMarkdown str = div [ DangerouslySetInnerHTML { __html = Marked.Globals.marked.parse (str) } ] []
 
 let root model dispatch =
-    str "Now you need to code this page."
+    div []
+        [ button [ OnClick (fun _ -> dispatch Increment)] [ str "Increment" ]
+          button [ OnClick (fun _ -> dispatch Decrement)] [ str "Decrement" ]
+          br []
+          str <| string model.Value ]
