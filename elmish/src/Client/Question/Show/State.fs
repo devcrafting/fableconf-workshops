@@ -13,7 +13,3 @@ let update msg model =
     match msg with
     | None ->
         model, Cmd.none
-    | Increment ->
-        { model with Model.Value = model.Value + 1 }, Cmd.none
-    | Decrement ->
-        { model with Model.Value = model.Value - 1 }, Cmd.none

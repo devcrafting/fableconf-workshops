@@ -5,13 +5,13 @@ open Okular.Lens
 type Model =
     { 
         Question : Shared.Types.Question option
-        Value : int
     }
 
     static member Empty =
-        { Question =  None; Value = 0 }
+        { Question = None }
 
 type Msg =
     | None
-    | Increment
-    | Decrement
+    | FetchDetail of int
+    | NetworkError of exn
+    | FetchDetailSuccess of Shared.Types.QuestionShow

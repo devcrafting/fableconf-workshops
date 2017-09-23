@@ -21,9 +21,9 @@ let htmlFromMarkdown str = div [ DangerouslySetInnerHTML { __html = Marked.Globa
 
 let root model dispatch =
     div []
-        [ button [ OnClick (fun _ -> dispatch Increment)
-                   ClassName "button" ] [ str "Increment" ]
-          button [ OnClick (fun _ -> dispatch Decrement)
-                   ClassName "button"] [ str "Decrement" ]
-          br []
-          str <| string model.Value ]
+        [ article [ ClassName "media" ]
+            [ figure [ClassName "media-left"]
+                [ p [ ClassName "image is64x64"]
+                    [ img [ Src "http://bulma.io/images/placeholders/128x128.png"]]]
+              div [ ClassName "media-content" ]
+                [ str "question text" ]] ]
