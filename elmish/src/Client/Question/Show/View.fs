@@ -24,9 +24,9 @@ let root model dispatch =
     | None -> str "Loading..."
     | Some question ->
         div []
-            [ article [ ClassName "media" ]
-                [ figure [ClassName "media-left"]
-                    [ p [ ClassName "image is64x64"]
+            [ Media.media []
+                [ Media.left [] 
+                    [ Image.image [ Image.is16x16 ]
                         [ img [ Src "http://bulma.io/images/placeholders/128x128.png"]]]
-                  div [ ClassName "media-content" ]
+                  Media.content []
                     [ str question.Title ]] ]
